@@ -139,7 +139,7 @@ jobs:
             path: ${{ steps.image-scan.outputs.json }}
 
   build:
-    needs: [test]
+    needs: [image-scan]
     runs-on: ubuntu-latest
     steps:
       -
