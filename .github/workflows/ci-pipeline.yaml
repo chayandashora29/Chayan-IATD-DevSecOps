@@ -139,7 +139,7 @@ jobs:
             path: ${{ steps.image-scan.outputs.json }}
 
   build:
-    needs: [test, sonarqube, dast]
+    needs: [test]
     runs-on: ubuntu-latest
     steps:
       -
@@ -203,3 +203,6 @@ jobs:
 
           # ZAP_RESPONSE=$(curl -X POST -H "Authorization: Bearer $AZURE_ACCESS_TOKEN"  --data-binary @$GITHUB_WORKSPACE/report_json.json https://devsecops-ver.azurewebsites.net/api/week3-zap-report)
           # echo "Zap upload: $ZAP_RESPONSE"
+
+          IMAGE_RESPONSE=$(curl -X POST -H "Authorization: Bearer $AZURE_ACCESS_TOKEN" --data-binary @$GITHUB_WORKSPACE/results.json https://devsecops-ver.azurewebsites.net/api/week4-image-report)
+          echo "Image report upload: $IMAGE_RESPONSE"
