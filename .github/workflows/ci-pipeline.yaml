@@ -28,7 +28,7 @@ jobs:
 
   sonarqube:
     needs: test
-    if: false
+    if: true
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -55,7 +55,7 @@ jobs:
 
   dast:
     needs: [test]
-    if: false
+    if: true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -99,7 +99,7 @@ jobs:
           echo "TEST_APP_URL=https://$FQDN" 
           curl https://$FQDN/ui
           sed -i "s,http://localhost:5000,https://$FQDN,g" $GITHUB_WORKSPACE/openapi_specs/openapi3.yml
-          
+
       - name: ZAP Scan
         uses: zaproxy/action-api-scan@v0.6.0
         with:
