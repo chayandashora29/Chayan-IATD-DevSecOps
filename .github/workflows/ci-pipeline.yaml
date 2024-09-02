@@ -187,7 +187,7 @@ jobs:
   #         echo "All security gates passed"
 
   build:
-    needs: image-scan
+    needs: test
     permissions:
       id-token: write    
     runs-on: ubuntu-latest
