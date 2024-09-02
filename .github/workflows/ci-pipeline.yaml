@@ -120,7 +120,7 @@ jobs:
           path: report_json.json
 
   image-scan:
-    needs: [sonarqube, dast]
+    needs: test
     if: true
     runs-on: ubuntu-latest
     steps:
