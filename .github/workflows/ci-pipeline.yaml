@@ -233,7 +233,7 @@ jobs:
 
       - name: Azure CLI script
         id: token-gen
-        uses: azure/CLI@v1
+        uses: azure/CLI@v2
         with:
           azcliversion: latest
           inlineScript: |
